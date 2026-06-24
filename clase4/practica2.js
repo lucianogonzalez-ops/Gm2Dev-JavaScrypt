@@ -16,4 +16,4 @@ for (let i = 0; i < selecciones.length; i++) {
 // Puede convenir el usar un for con indice cuando queremos utilizar el indice , por ejemplo yo lo utilice para hacer el conteo sin usar nada mas qeu el indice
 
 // ¿Cuándo conviene usar for...of?
-// Creo que conviene cuando simplemente queremos mostrar los elementos de la lista , por ejemplo yo quiero mostrar las seleccions , no se cuantas hay , ni me interesa tampoco.
+// Creo que conviene cuando simplemente queremos mostrar o solo nos interesa los elemenos de la lista  , por ejemplo yo quiero mostrar las seleccions , no se cuantas hay , ni me interesa tampoco.

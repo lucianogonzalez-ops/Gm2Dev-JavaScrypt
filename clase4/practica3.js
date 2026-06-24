@@ -10,3 +10,5 @@ for (let i = 0; i <= 30 ; i++) {
         console.log(i)
     }
 }
+
+// Utilizo un for para que recorra los numeros del 1 al 30 , luego un if para definir condiciones a la hora de mostrar un mensaje en la terminal

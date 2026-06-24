@@ -11,7 +11,6 @@ while (!final) {
             break
         } else if(numeroElegido > numeroSecreto ){
             console.log(`Intento ${i+1} : ${numeroElegido} Muy alto`)
-            
         }   else{
                 console.log(`Intento ${i+1} : ${numeroElegido} Muy bajo`)
         }
@@ -20,5 +19,8 @@ while (!final) {
         ,EL NUMERO ERA ${numeroSecreto}`)
         break
     }
-
 }
+
+//utilizo un while !final , este while existe mientras final sea false , luego adentro del hile un for que recorre la lista "intentos[]" hasta su longitud
+//luego con cada step que haga , guarda el numero en una variable , esta variable luego es comparada y en base a ifs muestra en la terminal un mensaje distinto
+// si se llegue al ultimo numero , muestra un el numero de intentos con un mensaje de fallaste
