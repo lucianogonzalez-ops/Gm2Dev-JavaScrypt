@@ -10,13 +10,19 @@ const jugadores = [
 ];
 
 
-jugadores.filter(j => j.goles > 2)
+const jugadoresFiltrados= jugadores.filter(j => j.goles > 2)
+console.log(jugadoresFiltrados)
 
-jugadores.map(j => j.nombre)
+const soloJugadores = jugadores.map(j => j.nombre)
+console.log(soloJugadores)
 
-jugadores
-      .filter(j => j.goles > 2)
-      .map(j => j.nombre)
+const Goleadores=jugadores .filter(j => j.goles > 2).map(j => j.nombre)
 
-jugadores.find(j => j.pais === "Francia")
+console.log(Goleadores)
+
+
+const primero=jugadores.find(j => j.pais === "Francia")
+console.log(primero)
+
+
 
