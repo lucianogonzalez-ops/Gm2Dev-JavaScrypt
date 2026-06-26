@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        .oculto { display: none; }
+    </style>
+
+</head>
+<body>
+    <input placeholder="Coloque un pais" id="busqueda" />
+
+<ul id="lista-paises">
+    <li>Alemania</li>
+    <li>Arabia Saudita</li>
+    <li>Argelia</li>
+    <li>Argentina</li>
+    <li>Australia</li>
+    <li>Bélgica</li>
+    <li>Bolivia</li>
+    <li>Brasil</li>
+    <li>Camerún</li>
+    <li>Canadá</li>
+    <li>Colombia</li>
+    <li>Corea del Sur</li>
+    <li>Costa de Marfil</li>
+    <li>Costa Rica</li>
+    <li>Croacia</li>
+    <li>Dinamarca</li>
+    <li>Ecuador</li>
+    <li>Egipto</li>
+    <li>España</li>
+    <li>Estados Unidos</li>
+    <li>Francia</li>
+    <li>Honduras</li>
+    <li>Inglaterra</li>
+    <li>Irak</li>
+    <li>Irán</li>
+    <li>Italia</li>
+    <li>Jamaica</li>
+    <li>Japón</li>
+    <li>Jordania</li>
+    <li>Marruecos</li>
+    <li>México</li>
+    <li>Nigeria</li>
+    <li>Nueva Zelanda</li>
+    <li>Países Bajos</li>
+    <li>Paraguay</li>
+    <li>Portugal</li>
+    <li>RD Congo</li>
+    <li>Sudáfrica</li>
+    <li>Túnez</li>
+    <li>Turquía</li>
+    <li>Ucrania</li>
+    <li>Uruguay</li>
+    <li>Uzbekistán</li>
+</ul>
+
+<script>
+    const input = document.querySelector("#busqueda");
+    const paises = document.querySelectorAll("#lista-paises li");
+    input.addEventListener("input",(event)=>{
+            const termino = event.target.value.toLowerCase();
+            paises.forEach((element) => { const textoPais = element.textContent.toLowerCase();
+                if(textoPais.includes(termino)){
+                    element.classList.remove("oculto");
+                }else{
+                    element.classList.add("oculto");
+                }
+            })
+        })
+</script>
+</body>
+</html>
