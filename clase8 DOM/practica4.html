@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        .destacado{
+            background-color: yellow;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+    <div id="muestra"></div>
+    <script>
+        const jugadores = [
+            { nombre: "Messi",   pais: "🇦🇷 Argentina", goles: 8  },
+            { nombre: "Haaland", pais: "🇳🇴 Noruega",   goles: 12 },
+            { nombre: "Mbappé",  pais: "🇫🇷 Francia",   goles: 5  },
+            { nombre: "Kane",    pais: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra", goles: 2  },
+            ];
+        const lista = document.querySelector("#muestra")
+        for (const jugador of jugadores) {
+            const tarjeta=document.createElement("div")
+            tarjeta.classList.add("tarjeta")
+
+            const nombreJugador=document.createElement("h2")
+            nombreJugador.textContent=`Nombre : ${jugador.nombre}`
+            tarjeta.appendChild(nombreJugador);
+
+            const paisJugador=document.createElement("p")
+            paisJugador.textContent=`Pais: ${jugador.pais}`
+            tarjeta.appendChild(paisJugador);
+
+            const golesJugador=document.createElement("p")
+            golesJugador.textContent=`Goles: ${jugador.goles}`
+            tarjeta.appendChild(golesJugador);
+            lista.appendChild(tarjeta)
+
+            if(jugador.goles > 5){
+                tarjeta.classList.add("destacado");
+            }
+    }
+        </script>
+
+
+    
+</body>
+</html>
