@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <script>
+
+        const grupos = ["Grupo A", "Grupo B", "Grupo C", "Grupo D", "Grupo E" , "GRUPO F"]
+
+    </script>
+</head>
+<body>
+    <ul id="grupo-lista"></ul>
+
+<script>
+
+    const lista = document.querySelector("#grupo-lista")
+
+    for (const grupo of grupos) {
+        const item=document.createElement("li")
+        item.textContent = grupo;
+        lista.appendChild(item);
+    }
+</script>
+</body>
+</html>
