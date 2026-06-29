@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 01 — Contador de goles</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    #marcador {
+      font-size: 4rem;
+      font-weight: bold;
+      display: block;
+      margin: 1rem 0;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Marcador</h1>
+
+  <span id="marcador">0</span>
+
+  <button id="boton-gol">¡Gol!</button>
+
+  <script>
+    let goles = 0;
+
+    // Tu código acá:
+    // 1. Seleccioná el botón (#boton-gol) y el marcador (#marcador)
+    const boton= document.getElementById("boton-gol")
+    const marcador=document.getElementById("marcador")
+    // 2. Registrá un manejador de "click" sobre el botón
+    boton.addEventListener("click",()=>{
+      goles++
+      marcador.textContent=goles
+    })
+  </script>
+</body>
+</html>

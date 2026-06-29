@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 03 — Saludo en vivo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 420px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    input {
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #saludo {
+      font-size: 1.6rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+
+
+<body>
+  <h1>Saludo en vivo</h1>
+
+  <input id="nombre" placeholder="Escribí tu nombre">
+
+  <p id="saludo">Hola, <span id="salida">...</span></p>
+
+  <script>
+    // Tu código acá:
+    // 1. Seleccioná el input (#nombre) y la salida (#salida)
+    const input = document.getElementById("nombre")
+    const output = document.getElementById("saludo")
+    input.addEventListener("input",()=>{
+      const saludo = event.target.value;
+      output.textContent=(`Hola , ${saludo || `...`}`)
+    })
+
+
+    // 2. Escuchá el evento "input" sobre el campo
+    // 3. Mostrá event.target.value dentro de #salida
+    // 4. Si está vacío, mostrá "..."
+  </script>
+</body>
+</html>
