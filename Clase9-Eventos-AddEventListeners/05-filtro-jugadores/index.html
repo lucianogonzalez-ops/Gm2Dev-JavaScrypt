@@ -28,6 +28,11 @@
       background-color: #f0f0f0;
       border-radius: 4px;
     }
+    .oculto{
+      display: none;
+    }
+
+
   </style>
 </head>
 <body>
@@ -52,10 +57,37 @@
     // Tu código acá:
 
 
-    const input = document.getElementById(buscador);
-    const jugadores = document.getElementById(jugadores);
+    const input = document.getElementById("buscador");
+    const  output = document.getElementById("lista");
+    jugadoresLista.forEach((element)=>{
+      const jugador=document.createElement("li")
+        jugador.textContent=element
+        jugador.classList.add("oculto")
+        output.appendChild(jugador);
+    })
+    input.addEventListener("input",()=>{
+      const jugador = event.target.value.toLowerCase();
+      for(const jugadores of output){
+          const jugadorBuscado = item.textContent.toLowerCase();
+          if(jugadorBuscado.includes(jugador)){
+            
+          }
+
+
+        
+
+      }
+      
+
+      
+
+    })
+
+
+
     
-   
+
+  
     // 1. Renderizá la lista: un <li> por jugador, agregado al #lista
     // 2. Escuchá el evento "input" del #buscador
     // 3. Mostrá/ocultá cada <li> según si coincide con lo tipeado (sin importar mayúsculas)
