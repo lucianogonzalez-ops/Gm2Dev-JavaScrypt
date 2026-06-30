@@ -57,16 +57,15 @@
   <script>
     const lista = document.getElementById("tareas")
     const boton = document.getElementById("agregar")
+    const campo = document.getElementById("nueva")
     boton.addEventListener("click",(event)=>{
-      const texto = document.getElementById("nueva").value
       const tarea=document.createElement("li")
-      tarea.textContent=texto
+      tarea.textContent=campo.value;
       lista.appendChild(tarea);
     })
     lista.addEventListener("click",(event)=>{
       if(event.target.tagName === "LI"){
         event.target.classList.add("hecha");
-        console.log("pofi")
       }
     })
 
