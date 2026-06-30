@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 04 — Buscador de jugadores</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 540px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    #buscador {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    #buscador:focus {
+      outline: none;
+      border-color: #0077cc;
+    }
+    .jugador {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .dorsal {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #555;
+      min-width: 32px;
+      text-align: center;
+    }
+    .info .nombre {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .info .equipo {
+      font-size: 0.85rem;
+      color: #777;
+    }
+    #sin-resultados {
+      display: none;
+      color: #888;
+      font-style: italic;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Jugadores del Mundial</h1>
+
+  <input type="text" id="buscador" placeholder="Buscar jugador...">
+
+  <div id="lista-jugadores">
+    <div class="jugador">
+      <span class="dorsal">10</span>
+      <div class="info">
+        <p class="nombre">Lionel Messi</p>
+        <p class="equipo">Argentina</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">7</span>
+      <div class="info">
+        <p class="nombre">Cristiano Ronaldo</p>
+        <p class="equipo">Portugal</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">9</span>
+      <div class="info">
+        <p class="nombre">Kylian Mbappé</p>
+        <p class="equipo">Francia</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">11</span>
+      <div class="info">
+        <p class="nombre">Vinicius Junior</p>
+        <p class="equipo">Brasil</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">8</span>
+      <div class="info">
+        <p class="nombre">Pedri González</p>
+        <p class="equipo">España</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">20</span>
+      <div class="info">
+        <p class="nombre">Lautaro Martínez</p>
+        <p class="equipo">Argentina</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">17</span>
+      <div class="info">
+        <p class="nombre">Bukayo Saka</p>
+        <p class="equipo">Inglaterra</p>
+      </div>
+    </div>
+    <div class="jugador">
+      <span class="dorsal">6</span>
+      <div class="info">
+        <p class="nombre">Alexia Putellas</p>
+        <p class="equipo">España</p>
+      </div>
+    </div>
+  </div>
+
+  <p id="sin-resultados">No hay jugadores que coincidan con la búsqueda.</p>
+
+  <script>
+    const buscador = document.querySelector("#buscador");
+
+    buscador.addEventListener("input", () => {
+      const busqueda = buscador.value.toLowerCase();
+      const tarjetas = document.querySelectorAll(".jugador");
+
+      // TODO: Recorrí las tarjetas con for...of.
+      //   Para cada una:
+      //     - Obtenéel texto del .nombre con .textContent y convertilo a minúsculas.
+      //     - Si el nombre incluye el texto buscado, mostrá la tarjeta (style.display = "").
+      //     - Si no, ocultala (style.display = "none").
+      //
+      // TODO: Después del loop, mostrá u ocultá #sin-resultados
+      //       según si quedó alguna tarjeta visible.
+    });
+  </script>
+
+</body>
+</html>
