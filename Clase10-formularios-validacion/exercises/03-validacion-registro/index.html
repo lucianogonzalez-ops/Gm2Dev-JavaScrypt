@@ -78,8 +78,27 @@
   <script>
     // TODO: Escribí las funciones de validación:
     //   validarNombre(valor)  → null si está bien, o string con el error
+    function validarNombre(valor){
+      if (valor.trim().length === 0){
+        return `EL nombre no puede estar vacio`
+      }
+      return null
+    }
     //   validarEmail(valor)   → null si está bien, o string con el error
+    function validarEmail(valor){
+      if (valor.includes(`@`)){
+        return null
+      }
+      return `El mail tiene que contener @`
+    }
+
     //   validarPassword(valor)→ null si está bien, o string con el error
+    function validarPassword(valor){
+      if(valor.trim().length >= 6){
+        return null
+      }
+      return `La contraseña debe tener minimo 6 caracteres`
+    }
 
     // TODO: Escuchá el evento submit del formulario.
     //   1. Llamá e.preventDefault()
@@ -89,14 +108,35 @@
     //   5. Si todo es válido, mostrá el mensaje de éxito en #exito
 
     const form = document.querySelector("#formRegistro");
+    const exito=document.getElementById("exito")
+    const errorNombreTexto=document.getElementById("error-nombre")
+    const errorMailTexto=document.getElementById("error-email")
+    const errorPasswordTexto=document.getElementById("error-password")
+
+    
+    
 
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
+    e.preventDefault();
+    const nombre   = document.querySelector("#nombre").value;
+    const nombreError = validarNombre(nombre)
+      
+    const email    = document.querySelector("#email").value;
+    const emailError = validarEmail(email)
 
-      const nombre   = document.querySelector("#nombre").value;
-      const email    = document.querySelector("#email").value;
-      const password = document.querySelector("#password").value;
+    const password = document.querySelector("#password").value;
+    const passwordError = validarPassword(password)
 
+    if (!nombreError && !emailError && !passwordError) {
+      errorNombreTexto.textContent = ``;
+      errorMailTexto.textContent = ``;
+      errorPasswordTexto.textContent = ``;
+      exito.textContent=`Bienvenido ${nombre}`
+    }
+    
+    if(nombreError){errorNombreTexto.textContent=nombreError}
+    if(emailError){errorMailTexto.textContent=emailError}
+    if(passwordError){errorPasswordTexto.textContent=passwordError}
       // --- Completar desde acá ---
     });
   </script>
