@@ -65,22 +65,16 @@
         jugador.classList.add("oculto")
         output.appendChild(jugador);
     })
-    input.addEventListener("input",()=>{
+    input.addEventListener("input",(event)=>{
       const jugador = event.target.value.toLowerCase();
-      for(const jugadores of output){
-          const jugadorBuscado = item.textContent.toLowerCase();
+      for(const jugadores of output.children){
+          const jugadorBuscado = jugadores.textContent.toLowerCase();
           if(jugadorBuscado.includes(jugador)){
-            
+            jugadores.classList.remove("oculto");
+          }else{
+            jugadores.classList.add("oculto");
           }
-
-
-        
-
       }
-      
-
-      
-
     })
 
 

@@ -53,8 +53,23 @@
   </div>
 
   <ul id="tareas"></ul>
-
+  
   <script>
+    const lista = document.getElementById("tareas")
+    const boton = document.getElementById("agregar")
+    const campo = document.getElementById("nueva")
+    boton.addEventListener("click",(event)=>{
+      const tarea=document.createElement("li")
+      tarea.textContent=campo.value;
+      lista.appendChild(tarea);
+    })
+    lista.addEventListener("click",(event)=>{
+      if(event.target.tagName === "LI"){
+        event.target.classList.add("hecha");
+      }
+    })
+
+
     // Tu código acá:
     // 1. Al hacer clic en #agregar: creá un <li> con el texto de #nueva y agregalo al #tareas
     // 2. UN solo manejador de "click" en el #tareas (no en cada <li>)

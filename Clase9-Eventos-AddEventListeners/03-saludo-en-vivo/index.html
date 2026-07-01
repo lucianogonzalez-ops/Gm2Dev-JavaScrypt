@@ -37,7 +37,7 @@
     // 1. Seleccioná el input (#nombre) y la salida (#salida)
     const input = document.getElementById("nombre")
     const output = document.getElementById("saludo")
-    input.addEventListener("input",()=>{
+    input.addEventListener("input",(event)=>{
       const saludo = event.target.value;
       output.textContent=(`Hola , ${saludo || `...`}`)
     })
