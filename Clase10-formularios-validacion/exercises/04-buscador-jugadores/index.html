@@ -134,12 +134,17 @@
     buscador.addEventListener("input", () => {
     const tarjetas = document.querySelectorAll(".jugador");
     const sinresultados=document.getElementById("sin-resultados")
+
+    function normalizarTexto(texto){
+      return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
     
     
     let encontrados = 0;
       for(jugador of tarjetas){
-        const busqueda = document.querySelector("#buscador").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        const nombre   = jugador.querySelector(".nombre").textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //el normalize , agarra las tildes y las separa en caracter sin y con , para que sirvan las dos opciones.
+        const busqueda = normalizarTexto(document.querySelector("#buscador").value)
+        const nombre   = normalizarTexto(jugador.querySelector(".nombre").textContent)
         if(nombre.includes(busqueda)){jugador.style.display="" , encontrados++}else{jugador.style.display="none"}
       }
       if (encontrados === 0){sinresultados.style.display = "block";}else{sinresultados.style.display="none"}

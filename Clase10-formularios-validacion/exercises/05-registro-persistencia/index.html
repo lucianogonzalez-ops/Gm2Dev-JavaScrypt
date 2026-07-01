@@ -74,6 +74,65 @@
     //   - Leé localStorage.getItem("usuario").
     //   - Si hay datos, parseá el JSON y mostrá la bienvenida directamente.
     //   - Si no hay datos, no hacés nada (el formulario ya es visible).
+    const form = document.getElementById("form")
+    const nombreInput = document.getElementById("nombre")
+    const equipoInput = document.getElementById("equipo")
+    const errorNombre = document.getElementById("error-nombre")
+    const bienvenidaDiv = document.getElementById("bienvenida")
+    const botonSalir = document.getElementById("btn-salir")
+    
+    function mostrarBienvenida(usuario){
+            bienvenida.textContent = `Bienvenido, ${usuario.nombre} Tu equipo es : ${usuario.equipo || 'sin equipo'}`
+            bienvenida.style.display = ''
+            botonSalir.style.display=``
+            form.style.display = 'none'
+    }
+
+    function mostrarFormulario(){
+            form.style.display =''
+            bienvenida.style.display ='none'
+            botonSalir.style.display ='none'
+
+    }
+    
+    document.addEventListener("DOMContentLoaded",(event)=>{
+      const local=localStorage.getItem("usuario")
+      if(local){
+        mostrarBienvenida(usuario)}
+    })
+
+    form.addEventListener("submit",(event)=>{
+      event.preventDefault();
+      const nombre = nombreInput.value
+      const equipo = equipoInput.value
+      const usuario = {nombre,equipo}
+      if (nombre.trim().length === 0 ){
+        errorNombre.textContent=`error`
+        return
+      }
+      errorNombre.textContent=``
+
+
+      localStorage.setItem("usuario",JSON.stringify(usuario))
+      mostrarBienvenida(usuario)
+    })
+
+    botonSalir.addEventListener("click",(event)=>{
+      
+      localStorage.removeItem("usuario")
+      mostrarFormulario()
+    })
+
+
+
+
+
+
+
+
+
+
+
 
     // TODO 2: Escuchá el evento submit del formulario.
     //   - Llamá e.preventDefault().
