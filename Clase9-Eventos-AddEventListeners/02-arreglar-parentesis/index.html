@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 02 — Arreglar el manejador</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Botón con bug</h1>
+  <p>Abrí la consola (F12) y observá cuándo aparece el mensaje.</p>
+
+  <button id="boton">Tocame</button>
+
+  <script>
+    function avisar() {
+      console.log("¡Hiciste clic!");
+    }
+
+    const boton = document.querySelector("#boton");
+
+    // 🐛 Este código tiene el bug. Arreglalo.
+    boton.addEventListener("click", ()=>{
+      avisar();
+    });
+  </script>
+</body>
+</html>

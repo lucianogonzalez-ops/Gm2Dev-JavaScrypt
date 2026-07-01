@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 04 — Modo oscuro</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      min-height: 100vh;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    /* Cuando el body tiene la clase "oscuro", se invierten los colores */
+    body.oscuro {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi página</h1>
+  <p>Probá el botón para cambiar entre modo claro y oscuro.</p>
+
+  <button id="toggle-tema">🌙 Modo oscuro</button>
+
+  <script>
+    // Tu código acá:
+    const theme = document.getElementById("toggle-tema");
+    const body = document.body.className;
+
+    theme.addEventListener("click",()=>{
+      const estado =document.body.classList.toggle("oscuro")
+      theme.textContent= estado ? `☀️ Modo claro` : `🌙 Modo oscuro`
+    })
+    // 1. Seleccioná el botón (#toggle-tema)
+    // 2. Al hacer clic, alterná la clase "oscuro" en document.body
+    // 3. Cambiá el texto del botón según el modo
+  </script>
+</body>
+</html>

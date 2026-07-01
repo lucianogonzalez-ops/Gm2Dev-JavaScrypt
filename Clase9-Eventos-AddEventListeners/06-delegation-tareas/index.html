@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 06 — Lista de tareas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 420px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .controles {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    #nueva {
+      flex: 1;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.4rem;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Una tarea completada se tacha */
+    li.hecha {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de tareas</h1>
+
+  <div class="controles">
+    <input id="nueva" placeholder="Nueva tarea">
+    <button id="agregar">Agregar</button>
+  </div>
+
+  <ul id="tareas"></ul>
+  
+  <script>
+    const lista = document.getElementById("tareas")
+    const boton = document.getElementById("agregar")
+    const campo = document.getElementById("nueva")
+    boton.addEventListener("click",(event)=>{
+      const tarea=document.createElement("li")
+      tarea.textContent=campo.value;
+      lista.appendChild(tarea);
+    })
+    lista.addEventListener("click",(event)=>{
+      if(event.target.tagName === "LI"){
+        event.target.classList.add("hecha");
+      }
+    })
+
+
+    // Tu código acá:
+    // 1. Al hacer clic en #agregar: creá un <li> con el texto de #nueva y agregalo al #tareas
+    // 2. UN solo manejador de "click" en el #tareas (no en cada <li>)
+    // 3. Usá event.target para alternar la clase "hecha" del <li> clickeado
+  </script>
+</body>
+</html>
