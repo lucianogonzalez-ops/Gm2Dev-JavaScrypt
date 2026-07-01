@@ -127,10 +127,18 @@
   <script>
     const buscador = document.querySelector("#buscador");
 
-    buscador.addEventListener("input", () => {
-      const busqueda = buscador.value.toLowerCase();
-      const tarjetas = document.querySelectorAll(".jugador");
 
+    buscador.addEventListener("input", () => {
+    const tarjetas = document.querySelectorAll(".jugador");
+    const sinresultados=document.getElementById("sin-resultados")
+    let encontrados = 0;
+      for(jugador of tarjetas){
+        const busqueda = document.querySelector("#buscador").value.toLowerCase();
+        const nombre   = jugador.querySelector(".nombre").textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //el normalize , agarra las tildes y las separa en caracter sin y con , para que sirvan las dos opciones.
+        if(nombre.includes(busqueda)){jugador.style.display="" , encontrados++}else{jugador.style.display="none"}
+      }
+      if (encontrados === 0){sinresultados.style.display = "block";}else{sinresultados.style.display="none"}
+      
       // TODO: Recorrí las tarjetas con for...of.
       //   Para cada una:
       //     - Obtenéel texto del .nombre con .textContent y convertilo a minúsculas.

@@ -118,6 +118,10 @@
 
     form.addEventListener("submit", (e) => {
     e.preventDefault();
+    errorNombreTexto.textContent = ``;
+    errorMailTexto.textContent = ``;
+    errorPasswordTexto.textContent = ``;
+    exito.textContent=``
     const nombre   = document.querySelector("#nombre").value;
     const nombreError = validarNombre(nombre)
       
