@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 02 — Validar un nombre</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 420px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #error {
+      color: red;
+      margin-top: 8px;
+      min-height: 1.2em;
+    }
+    #resultado {
+      margin-top: 16px;
+      font-size: 1.1rem;
+      color: #1a7a1a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Práctica 02</h1>
+  <p>Ingresá tu nombre. Se validará antes de aceptarlo.</p>
+
+  <form id="miForm">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" placeholder="Ej: María">
+    <p id="error"></p>
+    <button type="submit" id="boton">Enviar</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+
+
+  function validarVacio(nombre){
+      return nombre.trim().length === 0
+    }
+
+  function validarLongitud(nombre){
+      return nombre.trim().length >= 3
+    }
+  
+  function validarDigitos(nombre){
+    for (const caracter of nombre) {
+    if (caracter >= "0" && caracter <= "9") return true;
+        }
+    return false;
+    }
+
+  function validarNombre(nombre){
+    if (validarVacio(nombre)){
+      return "El nombre no puede estar vacío.";
+    }
+    if (!validarLongitud(nombre)){
+
+    return "El nombre debe tener minimo 3 caracteres"
+    }
+    
+    if (validarDigitos(nombre)){
+
+      return "El nombre debe contener solo letras"
+    }
+    return null
+  }
+
+
+  const formulario = document.getElementById("miForm");
+  const entradaDeNombre = document.getElementById("nombre");
+  const elementoError = document.getElementById("error");
+  const elementoResultado = document.getElementById("resultado");
+  formulario.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    const error =validarNombre(entradaDeNombre.value);
+    elementoResultado.textContent=``
+    elementoError.textContent=``
+    if (error){elementoError.textContent= error}else{
+      elementoResultado.textContent=`Hola ${entradaDeNombre.value}`
+    }
+
+
+  })
+
+
+  
+    
+    
+    
+    
+    
+    // TODO: Escribí una función validarNombre(nombre) que devuelva
+    // null si el nombre es válido, o un string con el mensaje de error.
+
+    // TODO: Escuchá el evento submit del formulario.
+    //       Usá e.preventDefault(), leé el input, llamá a validarNombre
+    //       y mostrá el resultado en #error o #resultado.
+  </script>
+  
+
+</body>
+</html>

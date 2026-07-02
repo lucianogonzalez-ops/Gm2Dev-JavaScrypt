@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 05 — Registro con persistencia</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 440px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .campo {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    input {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      min-height: 1.2em;
+      display: block;
+      margin-top: 4px;
+    }
+    button {
+      padding: 10px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #bienvenida {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #1a7a1a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Registro</h1>
+
+  <form id="form">
+
+    <div class="campo">
+      <label for="nombre">Nombre *</label>
+      <input type="text" id="nombre" placeholder="Tu nombre completo">
+      <span class="error" id="error-nombre"></span>
+    </div>
+
+    <div class="campo">
+      <label for="equipo">Equipo favorito (opcional)</label>
+      <input type="text" id="equipo" placeholder="Ej: Argentina">
+    </div>
+
+    <button type="submit">Guardar</button>
+
+  </form>
+
+  <div id="bienvenida" style="display:none"></div>
+  <button id="btn-salir" style="display:none">Salir</button>
+
+  <script>
+    // TODO 1: Escuchá el evento DOMContentLoaded.
+    //   - Leé localStorage.getItem("usuario").
+    //   - Si hay datos, parseá el JSON y mostrá la bienvenida directamente.
+    //   - Si no hay datos, no hacés nada (el formulario ya es visible).
+    const form = document.getElementById("form")
+    const nombreInput = document.getElementById("nombre")
+    const equipoInput = document.getElementById("equipo")
+    const errorNombre = document.getElementById("error-nombre")
+    const bienvenidaDiv = document.getElementById("bienvenida")
+    const botonSalir = document.getElementById("btn-salir")
+    
+    function mostrarBienvenida(usuario){
+            bienvenida.textContent = `Bienvenido, ${usuario.nombre} Tu equipo es : ${usuario.equipo || 'sin equipo'}`
+            bienvenida.style.display = ''
+            botonSalir.style.display=``
+            form.style.display = 'none'
+    }
+
+    function mostrarFormulario(){
+            form.style.display =''
+            bienvenida.style.display ='none'
+            botonSalir.style.display ='none'
+
+    }
+    
+    document.addEventListener("DOMContentLoaded",(event)=>{
+      const local=localStorage.getItem("usuario")
+      if(local){
+        mostrarBienvenida(usuario)}
+    })
+
+    form.addEventListener("submit",(event)=>{
+      event.preventDefault();
+      const nombre = nombreInput.value
+      const equipo = equipoInput.value
+      const usuario = {nombre,equipo}
+      if (nombre.trim().length === 0 ){
+        errorNombre.textContent=`error`
+        return
+      }
+      errorNombre.textContent=``
+
+
+      localStorage.setItem("usuario",JSON.stringify(usuario))
+      mostrarBienvenida(usuario)
+    })
+
+    botonSalir.addEventListener("click",(event)=>{
+      
+      localStorage.removeItem("usuario")
+      mostrarFormulario()
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+    // TODO 2: Escuchá el evento submit del formulario.
+    //   - Llamá e.preventDefault().
+    //   - Leé #nombre y #equipo con .value.
+    //   - Si nombre.trim() está vacío, mostrá error en #error-nombre y salí.
+    //   - Si es válido, guardá { nombre, equipo } en localStorage con JSON.stringify.
+    //     Clave: "usuario".
+    //   - Ocultá el formulario, mostrá #bienvenida con el mensaje y mostrá #btn-salir.
+
+    // TODO 3: Escuchá el evento click de #btn-salir.
+    //   - Llamá localStorage.removeItem("usuario").
+    //   - Ocultá #bienvenida y #btn-salir.
+    //   - Mostrá el formulario.
+  </script>
+
+</body>
+</html>
