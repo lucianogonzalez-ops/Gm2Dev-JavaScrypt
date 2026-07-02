@@ -34,13 +34,23 @@
   <button id="btn-tema">Activar modo oscuro</button>
 
   <script>
-    const btn = document.querySelector("#btn-tema");
-
+    
     // TODO 1: al cargar la página, leer la preferencia guardada en localStorage
     // (clave "tema"). Si vale "oscuro", agregar la clase "oscuro" al body
     // y cambiar el texto del botón a "Activar modo claro".
+    const btn = document.querySelector("#btn-tema");
+    const estadoGuardado= localStorage.getItem("estado")
+    if (estadoGuardado === "oscuro") {
+                document.body.classList.add("oscuro");
+                btn.textContent = "Activar modo claro";
+            }
 
     btn.addEventListener("click", () => {
+      const estado =document.body.classList.toggle("oscuro")
+      btn.textContent= estado ? `Activar modo claro` : `Activar modo oscuro`
+      const estadoLocal= localStorage.setItem("estado",estado)
+
+
       // TODO 2: alternar la clase "oscuro" en document.body
       // TODO 3: actualizar el texto del botón
       // TODO 4: guardar la preferencia en localStorage
