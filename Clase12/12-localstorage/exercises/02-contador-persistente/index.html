@@ -37,13 +37,17 @@
   <div class="botones">
     <button id="btn-menos">-1</button>
     <button id="btn-mas">+1</button>
+    <button id ="reset"> reset</button>
   </div>
   <!-- TODO: agregar el botón Reset -->
 
   <script>
     // TODO 1: al cargar, leer el valor guardado en localStorage
     // (clave "contador"). Si no existe, usar 0.
-    let contador = 0;
+    
+    
+    
+    let contador = localStorage.getItem("Contador");
 
     const display = document.querySelector("#display");
     display.textContent = contador;
@@ -51,14 +55,28 @@
     document.querySelector("#btn-mas").addEventListener("click", () => {
       contador++;
       display.textContent = contador;
+      localStorage.setItem("Contador", contador);
+
+
       // TODO 2: guardar el nuevo valor en localStorage
     });
 
     document.querySelector("#btn-menos").addEventListener("click", () => {
       contador--;
       display.textContent = contador;
+      localStorage.setItem("Contador", contador);
+
       // TODO 2: guardar el nuevo valor en localStorage
     });
+
+    document.getElementById("reset").addEventListener("click",()=>{
+      localStorage.removeItem("Contador")
+      contador = 0
+      display.textContent = contador;
+
+
+    })
+    
 
     // TODO 3: agregar el botón Reset que vuelve a 0 y borra la clave
   </script>
