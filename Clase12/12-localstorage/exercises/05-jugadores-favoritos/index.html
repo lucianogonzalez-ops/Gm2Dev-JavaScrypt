@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jugadores favoritos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .formulario input {
+      font-size: 1rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .formulario button {
+      font-size: 1rem;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    #lista {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    #lista li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #lista li .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #lista li .posicion {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    #lista li button {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: #c0392b;
+    }
+
+    #btn-limpiar {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      color: #c0392b;
+      border: 1px solid #c0392b;
+      background: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jugadores favoritos</h1>
+
+  <div class="formulario">
+    <input type="text" id="input-nombre" placeholder="Nombre del jugador">
+    <input type="text" id="input-posicion" placeholder="Posición (ej: Delantero)">
+    <button id="btn-agregar">Agregar</button>
+  </div>
+
+  <ul id="lista"></ul>
+
+  <button id="btn-limpiar">Limpiar todo</button>
+
+  <script>
+    // TODO: implementar renderizarLista()
+    // Debe leer el array desde localStorage (no desde una variable global),
+    // limpiar la lista y crear los <li> con un botón ✕ en cada uno.
+    function renderizarLista() {
+      // ...
+    }
+
+    // TODO: agregar jugador al hacer click en "Agregar"
+    // 1. Leer nombre y posición del formulario
+    // 2. Validar que no estén vacíos
+    // 3. Leer el array actual de localStorage, agregar el objeto, guardar y renderizar
+    document.querySelector("#btn-agregar").addEventListener("click", () => {
+      // ...
+    });
+
+    // TODO: implementar "Limpiar todo"
+    // Usar localStorage.removeItem y llamar a renderizarLista()
+    document.querySelector("#btn-limpiar").addEventListener("click", () => {
+      // ...
+    });
+
+    // Renderizar al cargar la página
+    renderizarLista();
+  </script>
+</body>
+</html>
