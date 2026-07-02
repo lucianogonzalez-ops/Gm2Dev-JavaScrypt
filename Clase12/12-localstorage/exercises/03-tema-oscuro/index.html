@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo oscuro</title>
+  <style>
+    /* Tema claro (por defecto) */
+    body {
+      font-family: sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      padding: 2rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Tema oscuro: se activa cuando <body> tiene la clase "oscuro" */
+    body.oscuro {
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi página</h1>
+  <p>Este es un párrafo de ejemplo para ver cómo se ve el texto en cada tema.</p>
+
+  <button id="btn-tema">Activar modo oscuro</button>
+
+  <script>
+    const btn = document.querySelector("#btn-tema");
+
+    // TODO 1: al cargar la página, leer la preferencia guardada en localStorage
+    // (clave "tema"). Si vale "oscuro", agregar la clase "oscuro" al body
+    // y cambiar el texto del botón a "Activar modo claro".
+
+    btn.addEventListener("click", () => {
+      // TODO 2: alternar la clase "oscuro" en document.body
+      // TODO 3: actualizar el texto del botón
+      // TODO 4: guardar la preferencia en localStorage
+    });
+  </script>
+</body>
+</html>

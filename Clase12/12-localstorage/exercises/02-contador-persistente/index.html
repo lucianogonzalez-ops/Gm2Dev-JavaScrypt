@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador persistente</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 1rem;
+    }
+
+    #display {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .botones {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contador</h1>
+  <p id="display">0</p>
+  <div class="botones">
+    <button id="btn-menos">-1</button>
+    <button id="btn-mas">+1</button>
+  </div>
+  <!-- TODO: agregar el botón Reset -->
+
+  <script>
+    // TODO 1: al cargar, leer el valor guardado en localStorage
+    // (clave "contador"). Si no existe, usar 0.
+    let contador = 0;
+
+    const display = document.querySelector("#display");
+    display.textContent = contador;
+
+    document.querySelector("#btn-mas").addEventListener("click", () => {
+      contador++;
+      display.textContent = contador;
+      // TODO 2: guardar el nuevo valor en localStorage
+    });
+
+    document.querySelector("#btn-menos").addEventListener("click", () => {
+      contador--;
+      display.textContent = contador;
+      // TODO 2: guardar el nuevo valor en localStorage
+    });
+
+    // TODO 3: agregar el botón Reset que vuelve a 0 y borra la clave
+  </script>
+</body>
+</html>

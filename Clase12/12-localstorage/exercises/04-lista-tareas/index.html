@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de tareas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .nueva-tarea {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .nueva-tarea input {
+      flex: 1;
+      font-size: 1rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .nueva-tarea button {
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+    }
+
+    #lista {
+      list-style: none;
+      padding: 0;
+    }
+
+    #lista li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #lista li button {
+      cursor: pointer;
+      color: #c0392b;
+      background: none;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    #pendientes {
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de tareas</h1>
+
+  <div class="nueva-tarea">
+    <input type="text" id="input-tarea" placeholder="Nueva tarea...">
+    <button id="btn-agregar">Agregar</button>
+  </div>
+
+  <ul id="lista"></ul>
+
+  <p id="pendientes">0 tareas pendientes</p>
+
+  <script>
+    // TODO 1: al cargar, leer las tareas guardadas en localStorage (clave "tareas")
+    // Si no hay nada, usar un array vacío []
+    let tareas = [];
+
+    const lista = document.querySelector("#lista");
+    const inputTarea = document.querySelector("#input-tarea");
+    const btnAgregar = document.querySelector("#btn-agregar");
+    const pendientes = document.querySelector("#pendientes");
+
+    // TODO 2: implementar la función renderizar()
+    // - Limpia la lista (lista.innerHTML = "")
+    // - Por cada tarea, crea un <li> con el texto y un botón Borrar
+    // - Actualiza el contador de pendientes
+    function renderizar() {
+      // ...
+    }
+
+    btnAgregar.addEventListener("click", () => {
+      const texto = inputTarea.value.trim();
+      if (texto === "") return;
+
+      // TODO 3: crear el objeto tarea, agregarlo al array,
+      // guardar en localStorage y renderizar
+      inputTarea.value = "";
+    });
+
+    // Permitir agregar con Enter
+    inputTarea.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") btnAgregar.click();
+    });
+
+    // Renderizar al cargar
+    renderizar();
+  </script>
+</body>
+</html>

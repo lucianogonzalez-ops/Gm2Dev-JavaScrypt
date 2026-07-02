@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sessionStorage y evento storage</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 { margin-top: 0; }
+
+    button {
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    .dato {
+      background: #f4f4f4;
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      font-family: monospace;
+      margin: 0.5rem 0;
+    }
+
+    #resultado-quota {
+      margin-top: 1rem;
+      color: #c0392b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>sessionStorage y el evento storage</h1>
+
+  <!-- PARTE A -->
+  <section>
+    <h2>Parte A — localStorage vs sessionStorage</h2>
+    <p>Al cargar esta página se guardan timestamps en ambos storages.</p>
+    <div class="dato" id="dato-local">localStorage: —</div>
+    <div class="dato" id="dato-session">sessionStorage: —</div>
+    <p>Abrí esta misma página en una segunda pestaña y compará los valores.</p>
+  </section>
+
+  <!-- PARTE B -->
+  <section>
+    <h2>Parte B — Evento storage entre pestañas</h2>
+    <p id="mensaje-recibido">Esperando cambios...</p>
+    <button id="btn-enviar">Enviar mensaje a otras pestañas</button>
+    <p><small>Hacé click acá y observá el párrafo de arriba en <strong>otra pestaña</strong>.</small></p>
+  </section>
+
+  <!-- PARTE C -->
+  <section>
+    <h2>Parte C — QuotaExceededError</h2>
+    <p>Simulá llenar localStorage hasta que el navegador rechace más datos.</p>
+    <button id="btn-llenar">Intentar llenar localStorage</button>
+    <p id="resultado-quota"></p>
+  </section>
+
+  <script>
+    // =====================
+    // PARTE A
+    // =====================
+    // TODO: guardar Date.now() en localStorage (clave "ts-local")
+    // y en sessionStorage (clave "ts-session").
+    // Mostrar los valores guardados en #dato-local y #dato-session.
+
+
+    // =====================
+    // PARTE B
+    // =====================
+    // TODO: al hacer click en #btn-enviar, guardar un string en localStorage
+    // (clave "mensaje", valor "Hola desde pestaña A — " + Date.now()).
+
+    // TODO: escuchar el evento "storage" en window.
+    // Cuando se dispare, actualizar #mensaje-recibido con evento.newValue.
+    // Recordá: el evento se dispara en OTRAS pestañas, no en la que hizo el cambio.
+
+
+    // =====================
+    // PARTE C
+    // =====================
+    // TODO: al hacer click en #btn-llenar:
+    // 1. Usar un loop con try/catch.
+    // 2. En cada iteración, setItem con un string de 100.000 caracteres.
+    // 3. Cuando falle, mostrar en #resultado-quota cuántas iteraciones completó
+    //    y el nombre del error (error.name).
+    // 4. Llamar a localStorage.clear() al final para limpiar.
+
+  </script>
+</body>
+</html>
