@@ -38,3 +38,5 @@ intentos = intentos + 1;
 intentos = intentos + 1;
 
 console.log(saludo + ", " + nombre + ". Intentos: " + intentos);
+
+
